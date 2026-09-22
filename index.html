@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#132a35">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Grade 9 | Hexagonal Seating Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">⬡</span><div><small>GLM · TEACHER WORKSPACE</small><strong>Seating Studio</strong></div></div>
+    <div class="top-actions"><span class="privacy">● Private classroom planning</span><button type="button" class="button ghost" id="printBtn">Print map</button><button type="button" class="button bright" id="exportBtn">Export backup</button></div>
+  </header>
+  <main class="app-shell">
+    <section class="intro">
+      <div><p class="eyebrow">CLASSROOM · GRADE NINE</p><h1>Every seat has a place.</h1><p class="subtitle">Move student names into the hexagonal classroom. Every group keeps its own arrangement on this device.</p></div>
+      <div class="group-switcher" role="group" aria-label="Choose class"><button class="group active" data-group="9A" aria-pressed="true">9A</button><button class="group" data-group="9B" aria-pressed="false">9B</button><button class="group" data-group="9C" aria-pressed="false">9C</button></div>
+    </section>
+    <div class="workspace">
+      <section class="room-panel" aria-label="Classroom seating map">
+        <div class="panel-heading"><div><span class="section-kicker">01 / SEATING MAP</span><h2><span id="roomGroup">9A</span> classroom</h2></div><div class="capacity"><span id="placedCount">0</span><span class="slash">/</span><span id="totalCount">20</span> seated</div></div>
+        <div class="map-scroll"><div class="room" id="room" aria-label="Hexagonal classroom with twenty desks"><div class="room-label top-label">FRONT OF CLASS</div><div class="teacher-desk">TEACHER</div><div class="room-label entrance">ENTRANCE ↓</div><div id="desks" class="desks"></div></div></div>
+        <div class="map-footer"><span><span class="legend-dot assigned"></span> Assigned</span><span><span class="legend-dot empty"></span> Empty desk</span><span class="helper">Drag a name, or select a name and then choose a desk.</span></div>
+      </section>
+      <aside class="roster-panel" aria-label="Student roster"><div class="panel-heading"><div><span class="section-kicker">02 / STUDENT ROSTER</span><h2>Names to place</h2></div><span class="count-bubble" id="waitingCount">20 left</span></div><label class="search-label" for="search">Find a student</label><input id="search" type="search" autocomplete="off" placeholder="Search names…"><label class="show-all"><input id="showAll" type="checkbox"> Show seated students too</label><div class="roster" id="roster" aria-live="polite"></div><div class="roster-footer"><p id="selectionHint">Select a student to assign them by tapping a desk.</p><button type="button" class="button subtle" id="clearSelectionBtn">Cancel selection</button></div></aside>
+    </div>
+    <section class="bottom-tools"><div><span class="section-kicker">ARRANGEMENT TOOLS</span><p>Changes are saved automatically in this browser. Export a backup to move between devices.</p></div><div class="tool-buttons"><button type="button" class="button subtle" id="importBtn">Import backup</button><button type="button" class="button subtle" id="clearBtn">Clear this group</button></div><input id="importInput" type="file" accept="application/json,.json" hidden></section>
+  </main>
+  <div class="toast" role="status" aria-live="polite" id="toast"></div>
+  <footer class="footer">For teacher use · Student names and seating plans stay in this browser unless you export them.</footer>
+</body>
+</html>
